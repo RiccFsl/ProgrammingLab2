@@ -7,4 +7,7 @@ def sum_csv(file_name):
             value = element[1]
             values.append(float(value))
     file.close()
-    return sum(values)
+    if(len(values)==0):
+        return None
+    else:
+        return sum(values)

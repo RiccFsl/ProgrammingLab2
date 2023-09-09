@@ -1,3 +1,5 @@
+my_file = open('shampoo_sales.csv', 'r')
+sum_csv(my_file)
 def sum_csv(file_name):
     values = []
     for line in file_name:

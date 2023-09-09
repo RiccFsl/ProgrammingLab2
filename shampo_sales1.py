@@ -6,6 +6,3 @@ def sum_csv(file_name):
             value = element[1]
             values.append(value)
     return sum(values)
-    
-my_file = open('shampoo_sales.csv', 'r')
-sum_csv(my_file)

@@ -10,7 +10,7 @@ class CSVFile():
         except Exception as e:
             print('Errore! il file "{}" non esiste'.format(self.name))
         for line in my_file:
-            element = line.split(',')
+            element = line.strip().split(',')
             #se non sto processando l'intestazione
             if element [0] != 'Date':
                 lista.append(element)

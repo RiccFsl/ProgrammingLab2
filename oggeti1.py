@@ -15,3 +15,23 @@ class CSVFile():
             if element [0] != 'Date':
                 lista.append(element)
         return lista
+
+class NumericalCSVFile(CSVFile):
+    
+    def get_data(self):
+        original_data = super().get_data()  # Ottieni i dati originali dalla classe padre
+        converted_data = []
+
+        for row in original_data:
+            converted_row = [row[0]]  # Mantieni il primo elemento come stringa
+            for item in row[1:]:
+                try:
+                    # Converte gli elementi in float, escludendo il primo elemento
+                    converted_row.append(float(item))
+                except ValueError:
+                    # Se la conversione in float fallisce, mantieni il valore come stringa
+                    print('Errore! "{}" non può essere convertito a float')
+                    converted_row.append(item)
+            converted_data.append(converted_row)
+
+        return converted_data

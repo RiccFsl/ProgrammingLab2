@@ -5,13 +5,13 @@ class CSVFile():
         self.lista = []  # Inizializza la lista vuota
         
         try:
-            my_file = open(self.name, 'r')
-            for line in my_file:
-                element = line.strip().split(',')
-                # Se non sto processando l'intestazione
-                if element[0] != 'Date':
-                    self.lista.append(element)
-            my_file.close()  # Chiudi il file dopo aver terminato di leggerlo
+            with open(self.name, 'r') as my_file:
+                for line in my_file:
+                    element = line.strip().split(',')
+                    # Se non sto processando l'intestazione
+                    if element[0] != 'Date':
+                        self.lista.append(element)
+
         except Exception as e:
             print('Errore! il file "{}" non esiste'.format(self.name))
 
